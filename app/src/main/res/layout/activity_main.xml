@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:id="@+id/relativeLayout">
+
+    <!--<android.support.v4.widget.SwipeRefreshLayout-->
+    <!--android:id="@+id/swipeRefreshLayout"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+
+    <TextView
+        android:id="@+id/locationTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Getting location..."
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/temperatureBackground"
+        android:layout_below="@+id/locationTextView"
+        android:layout_above="@+id/summaryLabel"
+        android:background="#739DBD"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/iconImageView"
+        android:contentDescription="image_content_desc"
+        android:layout_below="@+id/locationTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="---"
+        android:id="@+id/currentTemperature"
+        android:textColor="#ffffff"
+        android:textSize="50sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:layout_below="@+id/iconImageView"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="100"
+        android:id="@+id/temperatureLinearLayout"
+        android:focusableInTouchMode="false"
+        android:focusable="false"
+        android:clickable="false"
+        android:baselineAligned="false"
+        android:layout_below="@id/currentTemperature"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="50">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Feels like"
+                android:id="@+id/feelsLikeLabel"
+                android:textColor="#ffffff"
+                android:gravity="left"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="---"
+                android:id="@+id/feelsLikeValue"
+                android:textColor="@android:color/white"
+                android:textIsSelectable="false"
+                android:textSize="15sp"
+                android:gravity="left"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="50">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Max/Min"
+                android:id="@+id/maxMinTemperatureLabel"
+                android:textColor="#ffffff"
+                android:gravity="right"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:id="@+id/maxMinTemperatureValue"
+                android:gravity="right"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Getting the weather..."
+        android:id="@+id/summaryLabel"
+        android:layout_below="@+id/temperatureLinearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:textSize="18sp"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/summaryLabel"
+        android:id="@+id/detailsLabelLinearLayout"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Humidity "
+            android:textSize="15sp"
+            android:id="@+id/humidityLabel"
+            android:layout_below="@id/summaryLabel"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UV Index "
+            android:id="@+id/uVIndexLabel"
+            android:layout_below="@id/humidityLabel"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wind "
+            android:id="@+id/windLabel"
+            android:textSize="15sp"
+            android:layout_below="@id/uVIndexLabel"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precipitation "
+            android:textSize="15sp"
+            android:id="@+id/precipLabel"
+            android:layout_below="@id/windLabel"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/summaryLabel"
+        android:id="@+id/detailsValueLinearLayout"
+        android:layout_toRightOf="@id/detailsLabelLinearLayout"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="----"
+            android:textSize="15sp"
+            android:id="@+id/humidityValue"
+            android:layout_below="@id/summaryLabel"
+            android:layout_toRightOf="@id/humidityLabel"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="----"
+            android:id="@+id/uVIndexValue"
+            android:layout_below="@id/humidityValue"
+            android:textSize="15sp"
+            android:layout_toRightOf="@id/uVIndexLabel"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="----"
+            android:id="@+id/windValue"
+            android:layout_below="@id/uVIndexValue"
+            android:textSize="15sp"
+            android:layout_toRightOf="@id/windLabel"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="----"
+            android:id="@+id/precipValue"
+            android:layout_below="@id/windValue"
+            android:layout_toRightOf="@id/precipLabel"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lastUpdatedTextView"
+        android:text="Last Updated at --"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="12sp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VOGUE"
+        android:id="@+id/vogueButton" android:layout_above="@+id/lastUpdatedTextView"
+        android:layout_alignParentLeft="true" android:layout_alignParentStart="true"/>
+
+
+    <!--</android.support.v4.widget.SwipeRefreshLayout>-->
+
+</RelativeLayout>
